@@ -1,0 +1,11 @@
+C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\obj\Debug\LoginForm.csproj.AssemblyReference.cache
+C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.Form1.resources
+C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.Properties.Resources.resources
+C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\obj\Debug\LoginForm.csproj.GenerateResource.cache
+C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\obj\Debug\LoginForm.csproj.CoreCompileInputs.cache
+C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.exe
+C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.pdb
+C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\bin\Debug\VactionPage.exe.config
+C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\bin\Debug\VactionPage.exe
+C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\bin\Debug\VactionPage.pdb
+C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.VactionChoice.resources
