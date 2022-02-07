@@ -1,7 +1,7 @@
 ﻿
 namespace VactionPage
 {
-    partial class AdminPage
+    partial class VacWaitList
     {
         /// <summary>
         /// Required designer variable.
@@ -29,14 +29,26 @@ namespace VactionPage
         /// </summary>
         private void InitializeComponent()
         {
+            this.lbTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbVacOk = new System.Windows.Forms.Label();
             this.lbVacList = new System.Windows.Forms.Label();
             this.lbapp = new System.Windows.Forms.Label();
             this.lbAddVac = new System.Windows.Forms.Label();
-            this.lbTitle = new System.Windows.Forms.Label();
+            this.lbName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // lbTitle
+            // 
+            this.lbTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbTitle.AutoSize = true;
+            this.lbTitle.Font = new System.Drawing.Font("Segoe UI Emoji", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle.Location = new System.Drawing.Point(748, 18);
+            this.lbTitle.Name = "lbTitle";
+            this.lbTitle.Size = new System.Drawing.Size(197, 36);
+            this.lbTitle.TabIndex = 32;
+            this.lbTitle.Text = "결재대기리스트";
             // 
             // panel1
             // 
@@ -44,10 +56,10 @@ namespace VactionPage
             this.panel1.Controls.Add(this.lbVacList);
             this.panel1.Controls.Add(this.lbapp);
             this.panel1.Controls.Add(this.lbAddVac);
-            this.panel1.Location = new System.Drawing.Point(21, 125);
+            this.panel1.Location = new System.Drawing.Point(25, 111);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(176, 453);
-            this.panel1.TabIndex = 16;
+            this.panel1.TabIndex = 33;
             // 
             // lbVacOk
             // 
@@ -79,7 +91,6 @@ namespace VactionPage
             this.lbapp.Size = new System.Drawing.Size(149, 19);
             this.lbapp.TabIndex = 1;
             this.lbapp.Text = "결재대기리스트";
-            this.lbapp.Click += new System.EventHandler(this.lbapp_Click);
             // 
             // lbAddVac
             // 
@@ -92,29 +103,28 @@ namespace VactionPage
             this.lbAddVac.Text = "휴가요청";
             this.lbAddVac.Click += new System.EventHandler(this.lbAddVac_Click);
             // 
-            // lbTitle
+            // lbName
             // 
-            this.lbTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Segoe UI Emoji", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle.Location = new System.Drawing.Point(760, 26);
-            this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(119, 36);
-            this.lbTitle.TabIndex = 17;
-            this.lbTitle.Text = "휴가승인";
+            this.lbName.AutoSize = true;
+            this.lbName.Font = new System.Drawing.Font("돋움체", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbName.Location = new System.Drawing.Point(815, 68);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(59, 16);
+            this.lbName.TabIndex = 34;
+            this.lbName.Text = "이름ㅇ";
             // 
-            // AdminPage
+            // VacWaitList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(100, 100);
-            this.ClientSize = new System.Drawing.Size(1467, 699);
-            this.Controls.Add(this.lbTitle);
+            this.ClientSize = new System.Drawing.Size(1456, 654);
+            this.Controls.Add(this.lbName);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "AdminPage";
-            this.Text = "adminPage";
+            this.Controls.Add(this.lbTitle);
+            this.Name = "VacWaitList";
+            this.Text = "VacWaitList";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -123,11 +133,13 @@ namespace VactionPage
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbVacOk;
         private System.Windows.Forms.Label lbVacList;
         private System.Windows.Forms.Label lbapp;
         private System.Windows.Forms.Label lbAddVac;
-        private System.Windows.Forms.Label lbVacOk;
-        private System.Windows.Forms.Label lbTitle;
+        private System.Windows.Forms.Label lbName;
     }
 }

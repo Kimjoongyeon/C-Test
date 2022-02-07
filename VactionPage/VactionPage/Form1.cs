@@ -26,22 +26,25 @@ namespace VactionPage
         }
         public void btnLogin_Click(object sender, EventArgs e)  //로그인 메소드
         {
-            string id = txtId.Text;
-            string pw = txtPwd.Text;
+            //string id = txtId.Text;
+            //string pw = txtPwd.Text;
+            //string Query = string.Empty;
             cmd = new SqlCommand();
             con.Open();
             cmd.Connection = con;
+            // 비번 복호화해서 로그인하게 해야함
             cmd.CommandText = "SELECT * FROM userLogin where id='" + txtId.Text + "' AND password='" + txtPwd.Text + "'";
+            //cmd.CommandText = "SELECT * FROM userLogin where id='" + txtId.Text + "' AND password= PwdCompare('" + txtPwd.Text + "', password)";
+            //cmd.CommandText = "SELECT PwdCompare(" + txtPwd.Text + ", password) from userLogin";
             dr = cmd.ExecuteReader();
             if(EmptyCheck() == true)
             { 
                 if (dr.Read() )
                 {
-                    if (txtId.Text == "admin1") //이부분에서 관리자만 들어가게끔 바꿔야함 지금은 엉망인 상태임
+                    if (txtId.Text == "admin") //이부분에서 관리자만 들어가게끔 바꿔야함 지금은 계정하나만 들어갈수 있는 상태임
                     {
                         this.Hide();
                         AdminPage adminPage = new AdminPage();
-                        adminPage.LoginData = txtId.Text;
                         adminPage.Show();
                     }
                     else
@@ -50,6 +53,7 @@ namespace VactionPage
                         VactionChoice vacChoice = new VactionChoice();
                         //vacChoice.Owner = this;
                         vacChoice.LoginData = txtId.Text;
+                        //vacChoice.LoginData = Query;
                         vacChoice.Show();
                     }
                 }
@@ -80,69 +84,5 @@ namespace VactionPage
         {
             this.Close();
         }
-
-        // 로그인한 상태로 사이트 이용하게하기(1.로그인시간 정하기 2.암호화, 복호화 이용하여 로그인)
-        /*
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if(!CK)
-            {
-                Application.Exit();
-            }
-            else
-            {
-                Properties.Settings.Default.id = txtId.Text;
-                Properties.Settings.Default.Save();
-            }
-        }
-
-
-        
-    public enum DesType
-    {
-       Encrypt = 0,    // 암호화
-       Decrypt = 1     // 복호화
-
-    }
-    public class DES
-    {
-
-       // Key 값은 무조건 8자리여야한다.
-       private byte[] Key { get; set; }
-
-       // 암호화/복호화 메서드
-       public string result(DesType type, string input)
-       {
-           var des = new DESCryptoServiceProvider()
-           {
-               Key = Key,
-               IV = Key
-           };
-
-           var ms = new MemoryStream();
-
-           // 익명 타입으로 transform / data 정의
-           var property = new
-           {
-               transform = type.Equals(DesType.Encrypt) ? des.CreateEncryptor() : des.CreateDecryptor(),
-               data = type.Equals(DesType.Encrypt) ? Encoding.UTF8.GetBytes(input.ToCharArray()) : Convert.FromBase64String(input)
-           };
-
-           var cryStream = new CryptoStream(ms, property.transform, CryptoStreamMode.Write);
-           var data = property.data;
-
-           cryStream.Write(data, 0, data.Length);
-           cryStream.FlushFinalBlock();
-
-           return type.Equals(DesType.Encrypt) ? Convert.ToBase64String(ms.ToArray()) : Encoding.UTF8.GetString(ms.GetBuffer());
-       }
-
-       // 생성자
-       public DES(string key)
-       {
-           Key = ASCIIEncoding.ASCII.GetBytes(key);
-       }
-    }
-    */
     }
 }
