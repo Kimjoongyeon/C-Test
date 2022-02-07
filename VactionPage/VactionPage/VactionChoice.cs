@@ -14,17 +14,13 @@ namespace VactionPage
 {
     public partial class VactionChoice : Form
     {
-        SqlConnection con;
-        SqlCommand cmd;
-        SqlDataReader dr;
 
-        int month, year, ableVac, useVac;
+        int month, year;
+        //월, 년을 다른 형태로 전달하는 정적변수
+        public static int static_month, static_year;
         public VactionChoice()
         {
-            InitializeComponent();
-            con = new SqlConnection("server=127.0.0.1; Initial Catalog=code;Integrated Security=SSPI");
-            
-            
+            InitializeComponent(); 
         }
         //Form1 값을 받아오기위한 코드
         private string VactionChoice_value;
@@ -55,20 +51,14 @@ namespace VactionPage
             month = now.Month;
             year = now.Year;
             //vaction = now.Month;
-            cmd = new SqlCommand();
-            con.Open();
-            cmd.Connection = con;
-            cmd.CommandText = "INSERT Vaction VALUES"+ lbName.Text +"";
-
-            dr = cmd.ExecuteReader();
 
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
-            ableVac = 1;
             LBDATE.Text = monthname + " " + year;
-            vacAble.Text = ableVac + "일";
-            vacUse.Text = useVac + "일";
-            //vacAble.Text = vaction + " ";
-            //vacUse.Text = 
+
+            static_month = month;
+            static_year = year;
+
+
 
             //달의 첫날부터 시작
             DateTime startofthemonth = new DateTime(year, month, 1);
@@ -121,7 +111,9 @@ namespace VactionPage
             daycontainer.Controls.Clear();
             //이전달로
             month--;
-            this.ableVac--;
+            static_month = month;
+            static_year = year;
+
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
             LBDATE.Text = monthname + " " + year;
 
@@ -155,7 +147,9 @@ namespace VactionPage
             daycontainer.Controls.Clear();
             //다음달로
             month++;
-            ableVac++;
+            static_month = month;
+            static_year = year;
+
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
             LBDATE.Text = monthname + " " + year;
 
