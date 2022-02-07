@@ -8,15 +8,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace VactionPage
 {
     public partial class VactionChoice : Form
     {
-        int month, year;
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataReader dr;
+
+        int month, year, ableVac, useVac;
         public VactionChoice()
         {
             InitializeComponent();
+            con = new SqlConnection("server=127.0.0.1; Initial Catalog=code;Integrated Security=SSPI");
+            
+            
         }
         //Form1 값을 받아오기위한 코드
         private string VactionChoice_value;
@@ -28,17 +36,39 @@ namespace VactionPage
 
         private void VactionChoice_Load(object sender, EventArgs e)
         {
-            //idBox.Text = LoginData;
+            lbName.Text = LoginData;
+            // 관리자만 보이게끔 처리
+            if (LoginData == "admin1")
+            {
+                lbVacOk.Show();
+            }
+            else
+            {
+                lbVacOk.Hide();
+            }
             displaDays();
         }
         private void displaDays()
         {
+            
             DateTime now = DateTime.Now;
             month = now.Month;
             year = now.Year;
+            //vaction = now.Month;
+            cmd = new SqlCommand();
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "INSERT Vaction VALUES"+ lbName.Text +"";
+
+            dr = cmd.ExecuteReader();
 
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
+            ableVac = 1;
             LBDATE.Text = monthname + " " + year;
+            vacAble.Text = ableVac + "일";
+            vacUse.Text = useVac + "일";
+            //vacAble.Text = vaction + " ";
+            //vacUse.Text = 
 
             //달의 첫날부터 시작
             DateTime startofthemonth = new DateTime(year, month, 1);
@@ -61,7 +91,28 @@ namespace VactionPage
                 UserControlDays ucdays = new UserControlDays();
                 ucdays.days(i);
                 daycontainer.Controls.Add(ucdays);
+                
             }
+        }
+
+        private void lbapp_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VacWaitList approvalList = new VacWaitList();
+            approvalList.Show();
+        }
+
+        private void lbVacList_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UserVactionList userVactionList = new UserVactionList();
+            userVactionList.Show();
+        }
+
+        private void lbVacOk_Click(object sender, EventArgs e)
+        {
+            AdminPage adminPage = new AdminPage();
+            adminPage.Show();
         }
 
         private void btnprevious_Click(object sender, EventArgs e)
@@ -70,7 +121,7 @@ namespace VactionPage
             daycontainer.Controls.Clear();
             //이전달로
             month--;
-
+            this.ableVac--;
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
             LBDATE.Text = monthname + " " + year;
 
@@ -104,7 +155,7 @@ namespace VactionPage
             daycontainer.Controls.Clear();
             //다음달로
             month++;
-
+            ableVac++;
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
             LBDATE.Text = monthname + " " + year;
 

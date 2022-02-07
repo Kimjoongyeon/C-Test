@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace VactionPage
 {
-    public partial class frmCalendar : Form
+    public partial class VacPmRegister : Form
     {
-        public frmCalendar()
+        public VacPmRegister()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

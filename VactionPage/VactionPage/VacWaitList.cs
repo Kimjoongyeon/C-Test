@@ -10,35 +10,24 @@ using System.Windows.Forms;
 
 namespace VactionPage
 {
-    public partial class AdminPage : Form
+    public partial class VacWaitList : Form
     {
-        public AdminPage()
+        public VacWaitList()
         {
             InitializeComponent();
         }
-        private string AdminPage_value;
-        public string LoginData
-        {
-            get { return this.AdminPage_value; }
-            set { this.AdminPage_value = value; }
-        }
-
         private void lbAddVac_Click(object sender, EventArgs e)
         {
+            this.Hide();
             VactionChoice vactionChoice = new VactionChoice();
             vactionChoice.Show();
         }
 
         private void lbVacList_Click(object sender, EventArgs e)
         {
+            this.Hide();
             UserVactionList userVactionList = new UserVactionList();
             userVactionList.Show();
-        }
-
-        private void lbapp_Click(object sender, EventArgs e)
-        {
-            VacWaitList vacWaitList = new VacWaitList();
-            vacWaitList.Show();
         }
     }
 }
