@@ -18,6 +18,10 @@ namespace VactionPage
         SqlConnection con;
         SqlCommand cmd;
         SqlDataReader dr;
+        public static class LoginInfo
+        {
+            public static string userId;
+        }
         public Form1()
         {
             InitializeComponent();
@@ -37,6 +41,7 @@ namespace VactionPage
             //cmd.CommandText = "SELECT * FROM userLogin where id='" + txtId.Text + "' AND password= PwdCompare('" + txtPwd.Text + "', password)";
             //cmd.CommandText = "SELECT PwdCompare(" + txtPwd.Text + ", password) from userLogin";
             dr = cmd.ExecuteReader();
+            
             if(EmptyCheck() == true)
             { 
                 if (dr.Read() )
@@ -51,7 +56,9 @@ namespace VactionPage
                     {
                         this.Hide();
                         VactionChoice vacChoice = new VactionChoice();
-                        vacChoice.LoginData = txtId.Text;
+                        LoginInfo.userId = txtId.Text;
+                        VacAmRegister vacAmRegister = new VacAmRegister();
+                        vacAmRegister.LoginData = txtId.Text;
                         vacChoice.Show();
                     }
                 }
