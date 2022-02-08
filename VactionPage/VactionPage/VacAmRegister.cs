@@ -13,19 +13,11 @@ namespace VactionPage
 {
     public partial class VacAmRegister : Form
     {
-        //create a connectionstring
         String connString = "server=127.0.0.1; Initial Catalog=code;Integrated Security=SSPI";
-        //I already created a database using xampp
+        
         public VacAmRegister()
         {
             InitializeComponent();
-        }
-        
-        private string VacAmRegister_value;
-        public string LoginData
-        {
-            get { return this.VacAmRegister_value; }
-            set { this.VacAmRegister_value = value; }
         }
         
         private void VacAmRegister_Load(object sender, EventArgs e)

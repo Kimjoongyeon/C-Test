@@ -10,7 +10,6 @@ C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\bin\Debug\Vaction
 C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\bin\Debug\VactionPage.pdb
 C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.VactionChoice.resources
 C:\JAVASTUDY\C-Test\VactionPage\VactionPage\obj\Debug\LoginForm.csproj.AssemblyReference.cache
-C:\JAVASTUDY\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.Form1.resources
 C:\JAVASTUDY\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.Properties.Resources.resources
 C:\JAVASTUDY\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.VactionChoice.resources
 C:\JAVASTUDY\C-Test\VactionPage\VactionPage\obj\Debug\LoginForm.csproj.GenerateResource.cache
@@ -52,3 +51,4 @@ D:\work\C-Test\VactionPage\VactionPage\obj\Debug\LoginForm.csproj.GenerateResour
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\LoginForm.csproj.CoreCompileInputs.cache
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.exe
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.pdb
+C:\JAVASTUDY\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.SHA1Util.resources
