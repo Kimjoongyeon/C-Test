@@ -51,6 +51,7 @@ namespace VactionPage
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.daycontainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.lbId = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -288,14 +289,25 @@ namespace VactionPage
             this.daycontainer.Size = new System.Drawing.Size(1417, 607);
             this.daycontainer.TabIndex = 30;
             // 
+            // lbId
+            // 
+            this.lbId.AutoSize = true;
+            this.lbId.Location = new System.Drawing.Point(857, 90);
+            this.lbId.Name = "lbId";
+            this.lbId.Size = new System.Drawing.Size(62, 16);
+            this.lbId.TabIndex = 43;
+            this.lbId.Text = "label4";
+            // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(880, 96);
+            this.label4.Font = new System.Drawing.Font("Segoe UI Emoji", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(831, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 16);
-            this.label4.TabIndex = 43;
-            this.label4.Text = "label4";
+            this.label4.Size = new System.Drawing.Size(119, 36);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "휴가신청";
             // 
             // VactionChoice
             // 
@@ -306,6 +318,7 @@ namespace VactionPage
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1732, 957);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.lbId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
@@ -360,6 +373,7 @@ namespace VactionPage
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.FlowLayoutPanel daycontainer;
+        private System.Windows.Forms.Label lbId;
         private System.Windows.Forms.Label label4;
     }
 }

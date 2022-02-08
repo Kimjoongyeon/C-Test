@@ -32,14 +32,14 @@ namespace VactionPage
         {
             //string id = txtId.Text;
             //string pw = txtPwd.Text;
-            //string Query = string.Empty;
             cmd = new SqlCommand();
             con.Open();
             cmd.Connection = con;
             // 비번 복호화해서 로그인하게 해야함
-            cmd.CommandText = "SELECT * FROM userLogin where id='" + txtId.Text + "' AND password='" + txtPwd.Text + "'";
-            //cmd.CommandText = "SELECT * FROM userLogin where id='" + txtId.Text + "' AND password= PwdCompare('" + txtPwd.Text + "', password)";
-            //cmd.CommandText = "SELECT PwdCompare(" + txtPwd.Text + ", password) from userLogin";
+            //cmd.CommandText = "SELECT * FROM userLogin where id='" + txtId.Text + "' AND password='" + txtPwd.Text + "'";
+            cmd.CommandText = "select * from userLogin where id = @id AND password= Pwdcompare(@pwd, password)";
+            cmd.Parameters.AddWithValue("@id", txtId.Text);
+            cmd.Parameters.AddWithValue("@pwd", txtPwd.Text);
             dr = cmd.ExecuteReader();
             
             if(EmptyCheck() == true)

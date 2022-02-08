@@ -43,6 +43,7 @@ namespace VactionPage
         private void btnSave_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(connString);
+            txId.Text = Form1.LoginInfo.userId;
             con.Open();
             String sql = "INSERT INTO Vaction(date, reason, id, am)VALUES(@fDate, @fReason, @fId, @fAm)";
             SqlCommand cmd = con.CreateCommand();

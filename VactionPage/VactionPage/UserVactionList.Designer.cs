@@ -55,7 +55,7 @@ namespace VactionPage
             this.lbTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbTitle.AutoSize = true;
             this.lbTitle.Font = new System.Drawing.Font("Segoe UI Emoji", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle.Location = new System.Drawing.Point(760, 28);
+            this.lbTitle.Location = new System.Drawing.Point(798, 28);
             this.lbTitle.Name = "lbTitle";
             this.lbTitle.Size = new System.Drawing.Size(119, 36);
             this.lbTitle.TabIndex = 27;
