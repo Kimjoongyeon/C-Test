@@ -13,11 +13,27 @@ using System.Security.Cryptography;
 
 namespace VactionPage
 {
+    class HashCode
+    {
+        public string PassHash(string data)
+        {
+            SHA1 sha = SHA1.Create();
+            byte[] hashdata = sha.ComputeHash(Encoding.Default.GetBytes(data));
+            StringBuilder returnValue = new StringBuilder();
+
+            for (int i = 0; i < hashdata.Length; i++)
+            {
+                returnValue.Append(hashdata[i].ToString());
+            }
+            return returnValue.ToString();
+        }
+    }
     public partial class Form1 : Form
     {
         SqlConnection con;
         SqlCommand cmd;
         SqlDataReader dr;
+        
         public static class LoginInfo
         {
             public static string userId;
@@ -30,16 +46,15 @@ namespace VactionPage
         }
         public void btnLogin_Click(object sender, EventArgs e)  //로그인 메소드
         {
-            //string id = txtId.Text;
-            //string pw = txtPwd.Text;
+            HashCode hash = new HashCode();
             cmd = new SqlCommand();
             con.Open();
             cmd.Connection = con;
             // 비번 복호화해서 로그인하게 해야함
-            //cmd.CommandText = "SELECT * FROM userLogin where id='" + txtId.Text + "' AND password='" + txtPwd.Text + "'";
-            cmd.CommandText = "select * from userLogin where id = @id AND password= Pwdcompare(@pwd, password)";
+            cmd.CommandText = "SELECT * FROM userLogin where id = @id AND password = @pwd";
+            //cmd.CommandText = "select * from userLogin where id = @id AND password= Pwdcompare(@pwd, password)";
             cmd.Parameters.AddWithValue("@id", txtId.Text);
-            cmd.Parameters.AddWithValue("@pwd", txtPwd.Text);
+            cmd.Parameters.AddWithValue("@pwd", hash.PassHash(txtPwd.Text));
             dr = cmd.ExecuteReader();
             
             if(EmptyCheck() == true)
@@ -57,8 +72,6 @@ namespace VactionPage
                         this.Hide();
                         VactionChoice vacChoice = new VactionChoice();
                         LoginInfo.userId = txtId.Text;
-                        VacAmRegister vacAmRegister = new VacAmRegister();
-                        vacAmRegister.LoginData = txtId.Text;
                         vacChoice.Show();
                     }
                 }
