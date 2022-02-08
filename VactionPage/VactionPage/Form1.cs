@@ -51,9 +51,7 @@ namespace VactionPage
                     {
                         this.Hide();
                         VactionChoice vacChoice = new VactionChoice();
-                        //vacChoice.Owner = this;
                         vacChoice.LoginData = txtId.Text;
-                        //vacChoice.LoginData = Query;
                         vacChoice.Show();
                     }
                 }

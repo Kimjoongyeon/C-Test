@@ -58,8 +58,6 @@ namespace VactionPage
             static_month = month;
             static_year = year;
 
-
-
             //달의 첫날부터 시작
             DateTime startofthemonth = new DateTime(year, month, 1);
 

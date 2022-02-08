@@ -24,7 +24,6 @@ C:\JAVASTUDY\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.adminPage.reso
 C:\JAVASTUDY\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.UserControlBlank.resources
 C:\JAVASTUDY\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.UserControlDays.resources
 C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.AdminPage.resources
-C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.frmCalendar.resources
 C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.UserControlBlank.resources
 C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.UserControlDays.resources
 C:\Users\Dev1_PC_5\source\repos\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.UserVactionList.resources
