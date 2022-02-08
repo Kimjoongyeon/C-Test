@@ -18,6 +18,10 @@ namespace VactionPage
         SqlConnection con;
         SqlCommand cmd;
         SqlDataReader dr;
+        public static class LoginInfo
+        {
+            public static string userId;
+        }
         public Form1()
         {
             InitializeComponent();
@@ -28,15 +32,16 @@ namespace VactionPage
         {
             //string id = txtId.Text;
             //string pw = txtPwd.Text;
-            //string Query = string.Empty;
             cmd = new SqlCommand();
             con.Open();
             cmd.Connection = con;
             // 비번 복호화해서 로그인하게 해야함
-            cmd.CommandText = "SELECT * FROM userLogin where id='" + txtId.Text + "' AND password='" + txtPwd.Text + "'";
-            //cmd.CommandText = "SELECT * FROM userLogin where id='" + txtId.Text + "' AND password= PwdCompare('" + txtPwd.Text + "', password)";
-            //cmd.CommandText = "SELECT PwdCompare(" + txtPwd.Text + ", password) from userLogin";
+            //cmd.CommandText = "SELECT * FROM userLogin where id='" + txtId.Text + "' AND password='" + txtPwd.Text + "'";
+            cmd.CommandText = "select * from userLogin where id = @id AND password= Pwdcompare(@pwd, password)";
+            cmd.Parameters.AddWithValue("@id", txtId.Text);
+            cmd.Parameters.AddWithValue("@pwd", txtPwd.Text);
             dr = cmd.ExecuteReader();
+            
             if(EmptyCheck() == true)
             { 
                 if (dr.Read() )
@@ -51,9 +56,9 @@ namespace VactionPage
                     {
                         this.Hide();
                         VactionChoice vacChoice = new VactionChoice();
-                        //vacChoice.Owner = this;
-                        vacChoice.LoginData = txtId.Text;
-                        //vacChoice.LoginData = Query;
+                        LoginInfo.userId = txtId.Text;
+                        VacAmRegister vacAmRegister = new VacAmRegister();
+                        vacAmRegister.LoginData = txtId.Text;
                         vacChoice.Show();
                     }
                 }

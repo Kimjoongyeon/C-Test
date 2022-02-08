@@ -20,10 +20,19 @@ namespace VactionPage
         {
             InitializeComponent();
         }
+        
+        private string VacAmRegister_value;
+        public string LoginData
+        {
+            get { return this.VacAmRegister_value; }
+            set { this.VacAmRegister_value = value; }
+        }
+        
         private void VacAmRegister_Load(object sender, EventArgs e)
         {
             // 날짜 정적변수들 받아와서 날짜 기록하기
             txDate.Text = VactionChoice.static_year +"/"+ VactionChoice.static_month + "/" + UserControlDays.static_day;
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -34,16 +43,20 @@ namespace VactionPage
         private void btnSave_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(connString);
+            txId.Text = Form1.LoginInfo.userId;
             con.Open();
-            String sql = "INSERT INTO Vaction(date, reason)VALUES(@param1, @param2)";
+            String sql = "INSERT INTO Vaction(date, reason, id, am)VALUES(@fDate, @fReason, @fId, @fAm)";
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandText = sql;
-            cmd.Parameters.AddWithValue("@param1",txDate.Text);
-            cmd.Parameters.AddWithValue("@param2", txEvent.Text);
+            cmd.Parameters.AddWithValue("@fDate", txDate.Text);
+            cmd.Parameters.AddWithValue("@fReason", txReason.Text);
+            cmd.Parameters.AddWithValue("@fId", txId.Text);
+            cmd.Parameters.AddWithValue("@fAm", "Ok");
             cmd.ExecuteNonQuery();
             MessageBox.Show("등록이 완료되었습니다.");
             cmd.Dispose();
             con.Close();
+            this.Close();
         }
     }
 }

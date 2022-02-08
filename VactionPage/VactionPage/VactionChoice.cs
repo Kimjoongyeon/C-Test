@@ -14,34 +14,33 @@ namespace VactionPage
 {
     public partial class VactionChoice : Form
     {
-
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataReader dr;
+        
         int month, year;
         //월, 년을 다른 형태로 전달하는 정적변수
         public static int static_month, static_year;
         public VactionChoice()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            con = new SqlConnection("server=127.0.0.1; Initial Catalog=code;Integrated Security=SSPI");
         }
-        //Form1 값을 받아오기위한 코드
-        private string VactionChoice_value;
-        public string LoginData
-        {
-            get { return this.VactionChoice_value; }
-            set { this.VactionChoice_value = value; }
-        }
-
+        
         private void VactionChoice_Load(object sender, EventArgs e)
         {
-            lbName.Text = LoginData;
+            //로그인한 데이터
+            lbId.Text=Form1.LoginInfo.userId;
             // 관리자만 보이게끔 처리
-            if (LoginData == "admin1")
+
+            if (lbId.Text == "admin1")
             {
                 lbVacOk.Show();
             }
             else
             {
                 lbVacOk.Hide();
-            }
+            } 
             displaDays();
         }
         private void displaDays()
@@ -50,15 +49,12 @@ namespace VactionPage
             DateTime now = DateTime.Now;
             month = now.Month;
             year = now.Year;
-            //vaction = now.Month;
 
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
             LBDATE.Text = monthname + " " + year;
 
             static_month = month;
             static_year = year;
-
-
 
             //달의 첫날부터 시작
             DateTime startofthemonth = new DateTime(year, month, 1);

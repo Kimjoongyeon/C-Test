@@ -23,7 +23,20 @@ namespace VactionPage
 
         private void UserControlDays_Load(object sender, EventArgs e)
         {
-            
+            SqlConnection con = new SqlConnection(connString); //"INSERT INTO Vaction(date, reason)VALUES(@param1, @param2)";
+            con.Open();
+            String sql = "SELECT * FROM Vaction where date = @fDate";
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.AddWithValue("@fDate", VactionChoice.static_year + "-" + VactionChoice.static_month + "-" + lbdays.Text);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                lbAmEvent.Text = reader["reason"].ToString();
+            }
+            reader.Dispose();
+            cmd.Dispose();
+            con.Close();
         }
         public void days(int numday)
         {
@@ -74,12 +87,12 @@ namespace VactionPage
         //Create a new method to display event
         private void displayEvent()
         {
-            SqlConnection con = new SqlConnection(connString);
+            SqlConnection con = new SqlConnection(connString); //"INSERT INTO Vaction(date, reason)VALUES(@param1, @param2)";
             con.Open();
-            String sql = "SELECT * FROM Vaction where date = ?";
+            String sql = "SELECT * FROM Vaction where date = @fDate";
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandText = sql;
-            cmd.Parameters.AddWithValue("date", VactionChoice.static_year + "-" + VactionChoice.static_month + "-" + lbdays.Text);
+            cmd.Parameters.AddWithValue("@fDate", VactionChoice.static_year + "-" + VactionChoice.static_month + "-" + lbdays.Text);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
