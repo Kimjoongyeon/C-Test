@@ -13,21 +13,6 @@ using System.Security.Cryptography;
 
 namespace VactionPage
 {
-    class HashCode
-    {
-        public string PassHash(string data)
-        {
-            SHA1 sha = SHA1.Create();
-            byte[] hashdata = sha.ComputeHash(Encoding.Default.GetBytes(data));
-            StringBuilder returnValue = new StringBuilder();
-
-            for (int i = 0; i < hashdata.Length; i++)
-            {
-                returnValue.Append(hashdata[i].ToString());
-            }
-            return returnValue.ToString();
-        }
-    }
     public partial class Form1 : Form
     {
         SqlConnection con;
@@ -46,7 +31,7 @@ namespace VactionPage
         }
         public void btnLogin_Click(object sender, EventArgs e)  //로그인 메소드
         {
-            HashCode hash = new HashCode();
+            HashPassword hash = new HashPassword();
             cmd = new SqlCommand();
             con.Open();
             cmd.Connection = con;
@@ -54,24 +39,25 @@ namespace VactionPage
             cmd.CommandText = "SELECT * FROM userLogin where id = @id AND password = @pwd";
             //cmd.CommandText = "select * from userLogin where id = @id AND password= Pwdcompare(@pwd, password)";
             cmd.Parameters.AddWithValue("@id", txtId.Text);
-            cmd.Parameters.AddWithValue("@pwd", hash.PassHash(txtPwd.Text));
+            //cmd.Parameters.AddWithValue("@pwd", hash.PassHash(txtPwd.Text));
+            cmd.Parameters.AddWithValue("@pwd", txtPwd.Text);
             dr = cmd.ExecuteReader();
-            
-            if(EmptyCheck() == true)
+            LoginInfo.userId = txtId.Text;
+
+            if (EmptyCheck() == true)
             { 
                 if (dr.Read() )
                 {
                     if (txtId.Text == "admin") //이부분에서 관리자만 들어가게끔 바꿔야함 지금은 계정하나만 들어갈수 있는 상태임
                     {
                         this.Hide();
-                        AdminPage adminPage = new AdminPage();
-                        adminPage.Show();
+                        VactionChoice vacChoice = new VactionChoice();
+                        vacChoice.Show();
                     }
                     else
                     {
                         this.Hide();
                         VactionChoice vacChoice = new VactionChoice();
-                        LoginInfo.userId = txtId.Text;
                         vacChoice.Show();
                     }
                 }
