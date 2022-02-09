@@ -38,7 +38,7 @@ namespace VactionPage
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbVacOk = new System.Windows.Forms.Label();
             this.lbVacList = new System.Windows.Forms.Label();
-            this.lbapp = new System.Windows.Forms.Label();
+            this.lbVacWait = new System.Windows.Forms.Label();
             this.lbAddVac = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.mybac = new System.Windows.Forms.Label();
@@ -53,6 +53,14 @@ namespace VactionPage
             this.daycontainer = new System.Windows.Forms.FlowLayoutPanel();
             this.lbId = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txYearVac = new System.Windows.Forms.TextBox();
+            this.txUseVac = new System.Windows.Forms.TextBox();
+            this.txRemainVac = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +91,7 @@ namespace VactionPage
             this.lbTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbTitle.AutoSize = true;
             this.lbTitle.Font = new System.Drawing.Font("Segoe UI Emoji", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle.Location = new System.Drawing.Point(2212, -1012);
+            this.lbTitle.Location = new System.Drawing.Point(2312, -885);
             this.lbTitle.Name = "lbTitle";
             this.lbTitle.Size = new System.Drawing.Size(119, 36);
             this.lbTitle.TabIndex = 14;
@@ -93,7 +101,7 @@ namespace VactionPage
             // 
             this.vacUse.AutoSize = true;
             this.vacUse.Font = new System.Drawing.Font("돋움체", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.vacUse.Location = new System.Drawing.Point(1476, 124);
+            this.vacUse.Location = new System.Drawing.Point(563, 103);
             this.vacUse.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.vacUse.Name = "vacUse";
             this.vacUse.Size = new System.Drawing.Size(30, 19);
@@ -104,7 +112,7 @@ namespace VactionPage
             // 
             this.lbName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(2374, -787);
+            this.lbName.Location = new System.Drawing.Point(2474, -660);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(59, 16);
             this.lbName.TabIndex = 18;
@@ -124,7 +132,7 @@ namespace VactionPage
             // 
             this.panel1.Controls.Add(this.lbVacOk);
             this.panel1.Controls.Add(this.lbVacList);
-            this.panel1.Controls.Add(this.lbapp);
+            this.panel1.Controls.Add(this.lbVacWait);
             this.panel1.Controls.Add(this.lbAddVac);
             this.panel1.Location = new System.Drawing.Point(75, 269);
             this.panel1.Name = "panel1";
@@ -150,16 +158,18 @@ namespace VactionPage
             this.lbVacList.Size = new System.Drawing.Size(89, 19);
             this.lbVacList.TabIndex = 2;
             this.lbVacList.Text = "휴가현황";
+            this.lbVacList.Click += new System.EventHandler(this.lbVacList_Click);
             // 
-            // lbapp
+            // lbVacWait
             // 
-            this.lbapp.AutoSize = true;
-            this.lbapp.Font = new System.Drawing.Font("돋움체", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbapp.Location = new System.Drawing.Point(13, 254);
-            this.lbapp.Name = "lbapp";
-            this.lbapp.Size = new System.Drawing.Size(149, 19);
-            this.lbapp.TabIndex = 1;
-            this.lbapp.Text = "결재대기리스트";
+            this.lbVacWait.AutoSize = true;
+            this.lbVacWait.Font = new System.Drawing.Font("돋움체", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbVacWait.Location = new System.Drawing.Point(13, 254);
+            this.lbVacWait.Name = "lbVacWait";
+            this.lbVacWait.Size = new System.Drawing.Size(149, 19);
+            this.lbVacWait.TabIndex = 1;
+            this.lbVacWait.Text = "결재대기리스트";
+            this.lbVacWait.Click += new System.EventHandler(this.lbVacWait_Click);
             // 
             // lbAddVac
             // 
@@ -241,7 +251,7 @@ namespace VactionPage
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(904, 238);
+            this.label9.Location = new System.Drawing.Point(926, 238);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 16);
@@ -252,7 +262,7 @@ namespace VactionPage
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label10.Location = new System.Drawing.Point(703, 238);
+            this.label10.Location = new System.Drawing.Point(723, 238);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 16);
@@ -292,9 +302,10 @@ namespace VactionPage
             // lbId
             // 
             this.lbId.AutoSize = true;
-            this.lbId.Location = new System.Drawing.Point(857, 90);
+            this.lbId.Font = new System.Drawing.Font("Segoe UI Emoji", 20.25F, System.Drawing.FontStyle.Bold);
+            this.lbId.Location = new System.Drawing.Point(758, 20);
             this.lbId.Name = "lbId";
-            this.lbId.Size = new System.Drawing.Size(62, 16);
+            this.lbId.Size = new System.Drawing.Size(94, 36);
             this.lbId.TabIndex = 43;
             this.lbId.Text = "label4";
             // 
@@ -303,11 +314,81 @@ namespace VactionPage
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Emoji", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(831, 20);
+            this.label4.Location = new System.Drawing.Point(931, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 36);
             this.label4.TabIndex = 44;
             this.label4.Text = "휴가신청";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(287, 104);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(239, 16);
+            this.label5.TabIndex = 45;
+            this.label5.Text = "내가 사용가능 예정인 휴가는";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1370, 108);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(145, 16);
+            this.label6.TabIndex = 47;
+            this.label6.Text = "내게 남은 휴가는";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("돋움체", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label13.Location = new System.Drawing.Point(1554, 108);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(30, 19);
+            this.label13.TabIndex = 46;
+            this.label13.Text = "일";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(287, 152);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(162, 16);
+            this.label14.TabIndex = 49;
+            this.label14.Text = "내가 사용한 휴가는";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("돋움체", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label15.Location = new System.Drawing.Point(491, 150);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(30, 19);
+            this.label15.TabIndex = 48;
+            this.label15.Text = "일";
+            // 
+            // txYearVac
+            // 
+            this.txYearVac.Location = new System.Drawing.Point(530, 99);
+            this.txYearVac.Name = "txYearVac";
+            this.txYearVac.Size = new System.Drawing.Size(26, 26);
+            this.txYearVac.TabIndex = 50;
+            // 
+            // txUseVac
+            // 
+            this.txUseVac.Location = new System.Drawing.Point(458, 146);
+            this.txUseVac.Name = "txUseVac";
+            this.txUseVac.Size = new System.Drawing.Size(26, 26);
+            this.txUseVac.TabIndex = 51;
+            // 
+            // txRemainVac
+            // 
+            this.txRemainVac.Location = new System.Drawing.Point(1521, 104);
+            this.txRemainVac.Name = "txRemainVac";
+            this.txRemainVac.Size = new System.Drawing.Size(26, 26);
+            this.txRemainVac.TabIndex = 52;
             // 
             // VactionChoice
             // 
@@ -316,7 +397,15 @@ namespace VactionPage
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(100, 100);
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1732, 957);
+            this.ClientSize = new System.Drawing.Size(1749, 974);
+            this.Controls.Add(this.txRemainVac);
+            this.Controls.Add(this.txUseVac);
+            this.Controls.Add(this.txYearVac);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lbId);
             this.Controls.Add(this.label1);
@@ -360,7 +449,7 @@ namespace VactionPage
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbVacOk;
         private System.Windows.Forms.Label lbVacList;
-        private System.Windows.Forms.Label lbapp;
+        private System.Windows.Forms.Label lbVacWait;
         private System.Windows.Forms.Label lbAddVac;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label mybac;
@@ -375,5 +464,13 @@ namespace VactionPage
         private System.Windows.Forms.FlowLayoutPanel daycontainer;
         private System.Windows.Forms.Label lbId;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txYearVac;
+        private System.Windows.Forms.TextBox txUseVac;
+        private System.Windows.Forms.TextBox txRemainVac;
     }
 }

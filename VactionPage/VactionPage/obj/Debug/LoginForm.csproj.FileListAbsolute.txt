@@ -38,7 +38,6 @@ D:\work\C-Test\VactionPage\VactionPage\bin\Debug\VactionPage.exe
 D:\work\C-Test\VactionPage\VactionPage\bin\Debug\VactionPage.pdb
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\LoginForm.csproj.AssemblyReference.cache
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.AdminPage.resources
-D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.Form1.resources
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.Properties.Resources.resources
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.UserControlBlank.resources
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.UserControlDays.resources
@@ -52,3 +51,4 @@ D:\work\C-Test\VactionPage\VactionPage\obj\Debug\LoginForm.csproj.CoreCompileInp
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.exe
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.pdb
 C:\JAVASTUDY\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.SHA1Util.resources
+D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.Form1.resources

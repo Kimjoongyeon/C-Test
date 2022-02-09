@@ -33,7 +33,7 @@ namespace VactionPage
             lbId.Text=Form1.LoginInfo.userId;
             // 관리자만 보이게끔 처리
 
-            if (lbId.Text == "admin1")
+            if (lbId.Text == "admin")
             {
                 lbVacOk.Show();
             }
@@ -45,7 +45,7 @@ namespace VactionPage
         }
         private void displaDays()
         {
-            
+            lbId.Text = Form1.LoginInfo.userId;
             DateTime now = DateTime.Now;
             month = now.Month;
             year = now.Year;
@@ -81,7 +81,7 @@ namespace VactionPage
             }
         }
 
-        private void lbapp_Click(object sender, EventArgs e)
+        private void lbVacWait_Click(object sender, EventArgs e)
         {
             this.Hide();
             VacWaitList approvalList = new VacWaitList();
@@ -97,6 +97,7 @@ namespace VactionPage
 
         private void lbVacOk_Click(object sender, EventArgs e)
         {
+            this.Hide();
             AdminPage adminPage = new AdminPage();
             adminPage.Show();
         }

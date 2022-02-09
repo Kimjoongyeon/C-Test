@@ -23,16 +23,16 @@ namespace VactionPage
 
         private void UserControlDays_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(connString); //"INSERT INTO Vaction(date, reason)VALUES(@param1, @param2)";
+            SqlConnection con = new SqlConnection(connString); 
             con.Open();
-            String sql = "SELECT * FROM Vaction where date = @fDate";
+            String sql = "SELECT * FROM totalVaction where date = @fDate";
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.AddWithValue("@fDate", VactionChoice.static_year + "-" + VactionChoice.static_month + "-" + lbdays.Text);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
-                lbAmEvent.Text = reader["reason"].ToString();
+                lbAmEvent.Text = reader["id"].ToString();
             }
             reader.Dispose();
             cmd.Dispose();
@@ -87,6 +87,7 @@ namespace VactionPage
         //Create a new method to display event
         private void displayEvent()
         {
+            /*
             SqlConnection con = new SqlConnection(connString); //"INSERT INTO Vaction(date, reason)VALUES(@param1, @param2)";
             con.Open();
             String sql = "SELECT * FROM Vaction where date = @fDate";
@@ -96,11 +97,12 @@ namespace VactionPage
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
-                lbAmEvent.Text = reader["reason"].ToString();
+                txAmEvent.Text = reader["reason"].ToString();
             }
             reader.Dispose();
             cmd.Dispose();
             con.Close();
+            */
         }
 
         private void timer1_Tick(object sender, EventArgs e)
