@@ -29,14 +29,17 @@ namespace VactionPage
             //로그인한 데이터
             lbId.Text = Form1.LoginInfo.userId;
             con.Open();
+            
             cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandText = "SELECT * FROM userLogin";
             dr = cmd.ExecuteReader();
+            
             if (dr.Read())
             {
-                Form1.LoginInfo.adminInfo = dr[4].ToString();
-                if (Form1.LoginInfo.adminInfo == "관리자")
+
+                //string userRole = dr["role"].ToString();
+                if (lbId.Text == "admin")
                 {
                     lbVacOk.Show();
                 }
@@ -49,12 +52,11 @@ namespace VactionPage
             dr.Close();
 
             con.Open();
-            cmd.CommandText = "SELECT id, userID, reason, am, pm, date FROM Vaction";
+            cmd.CommandText = "SELECT id, userID, reason, am, pm, date, status FROM Vaction";
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds, "Vaction");
-            
             vacListView.DataSource = ds;
             vacListView.DataMember = "Vaction";
             vacListView.Columns["id"].HeaderText = "번호";
@@ -63,9 +65,13 @@ namespace VactionPage
             vacListView.Columns["reason"].HeaderText = "휴가사유";
             vacListView.Columns["reason"].Width = 300;
             vacListView.Columns["am"].HeaderText = "오전휴가";
+            vacListView.Columns["am"].Width = 40;
             vacListView.Columns["pm"].HeaderText = "오후휴가";
+            vacListView.Columns["pm"].Width = 40;
             vacListView.Columns["date"].HeaderText = "날짜";
-            vacListView.Columns["date"].Width = 180;
+            vacListView.Columns["date"].Width = 120;
+            vacListView.Columns["status"].HeaderText = "상태";
+            vacListView.Columns["status"].Width = 70;
         }
         
         private void lbAddVac_Click(object sender, EventArgs e)

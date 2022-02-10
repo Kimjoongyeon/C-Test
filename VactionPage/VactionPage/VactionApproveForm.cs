@@ -26,37 +26,17 @@ namespace VactionPage
 
         private void btnApprove_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            AdminPage adminPage = new AdminPage();
-            SqlConnection con = new SqlConnection(connString);
-            con.Open();
-            String sql = "INSERT INTO totalVaction(date, reason, id, am, pm, status, yearVaction, remainVaction)VALUES" +
-                "(@date, @reason, @id, @am, @pm, @status, @yearVaction, @remainVaction)";
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandText = sql;
-            cmd.Parameters.AddWithValue("@date", adminPage);
-            cmd.Parameters.AddWithValue("@reason", adminPage);
-            cmd.Parameters.AddWithValue("@id", adminPage);
-            cmd.Parameters.AddWithValue("@am", "AM");
-            //cmd.Parameters.AddWithValue("@useVaction", -0.5);
-            cmd.Parameters.AddWithValue("@status", 0);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("등록이 완료되었습니다.");
-            cmd.Dispose();
-            con.Close();
-            this.Close();
-            /*
-=======
+
             // 휴가테이블 사용한 휴가, 상태값 변경
-            String modifySql = "UPDATE Vaction SET useVaction = @useVaction, status = @status WHERE id = @id";
+            String modifySql = "UPDATE Vaction SET status = @status WHERE id = @id";
             
             String selectSql = "SELECT Vaction.id, Vaction.userID, Vaction.date, Vaction.am, Vaction.pm, Vaction.reason, Vaction.status" +
                " FROM Vaction, totalVaction WHERE Vaction.id = totalVaction.id and Vaction.id = @id";
 
             String inputSql = "UPDATE totalVaction SET id=@id, userID=@userID, date=@date, am=@am, pm=@pm, reason=@reason, status=@status ";
 
-            //String sql = "INSERT INTO totalVaction(@totalVactionNo, id, date, am, pm, reason, status) Vaction WHERE @VactionNo";
->>>>>>> b3d6ffccaffa5218e15022a2e18d7685fbd1b71d
+            //String inputSql = "INSERT INTO totalVaction(id, userID, date, am, pm, reason, status) VALEUS  (@id, @userID, @date, @am, @pm, @reason, @status)";
+
             SqlConnection con = new SqlConnection(connString);
             con.Open();
 
@@ -76,7 +56,6 @@ namespace VactionPage
             SqlDataReader rs = secmd.ExecuteReader();
 
             modifycmd.Parameters.AddWithValue("@id", txNo.Text);
-            modifycmd.Parameters.AddWithValue("@useVaction", -0.5);
             modifycmd.Parameters.AddWithValue("@status", 1);
 
             rs.Read();
@@ -117,23 +96,67 @@ namespace VactionPage
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            String modifySql = "UPDATE Vaction SET status = @status WHERE id = @id";
+
+            String selectSql = "SELECT Vaction.id, Vaction.userID, Vaction.date, Vaction.am, Vaction.pm, Vaction.reason, Vaction.status" +
+               " FROM Vaction, totalVaction WHERE Vaction.id = totalVaction.id and Vaction.id = @id";
+
+            String inputSql = "UPDATE totalVaction SET id=@id, userID=@userID, date=@date, am=@am, pm=@pm, reason=@reason, status=@status ";
+
+            //String inputSql = "INSERT INTO totalVaction(id, userID, date, am, pm, reason, status) VALEUS  (@id, @userID, @date, @am, @pm, @reason, @status)";
+
             SqlConnection con = new SqlConnection(connString);
             con.Open();
-            String datasql = "UPDATE Vaction SET status = @status WHERE vactionNo = @vactionNo";
-            String sql = "SELECT Vaction.vactionNo, Vaction.id, Vaction.date, Vaction.am, Vaction.pm, Vaction.reason, Vaction.status" +
-                "FROM Vaction INNER JOIN totalVaction ON Vaction.vactionNo = totalVaction.totalVactionNo";
-            SqlCommand cmd = con.CreateCommand();
-            SqlCommand incmd = con.CreateCommand();
-            cmd.CommandText = sql;
-            incmd.CommandText = datasql;
 
-            incmd.Parameters.AddWithValue("@vactionNo", txNo.Text);
-            incmd.Parameters.AddWithValue("@status", 2);
+            SqlCommand com = new SqlCommand();
+
+            SqlCommand incmd = con.CreateCommand();
+            SqlCommand modifycmd = con.CreateCommand();
+            SqlCommand secmd = con.CreateCommand();
+
+            com.Connection = con;
+
+            modifycmd.CommandText = modifySql;
+            secmd.CommandText = selectSql;
+            incmd.CommandText = inputSql;
+
+            secmd.Parameters.AddWithValue("@id", txNo.Text);
+            SqlDataReader rs = secmd.ExecuteReader();
+
+            modifycmd.Parameters.AddWithValue("@id", txNo.Text);
+            modifycmd.Parameters.AddWithValue("@status", 2);
+
+            rs.Read();
+
+
+            var id = rs[0].ToString();
+            var userID = rs[1].ToString();
+            var date = rs[2].ToString();
+            var am = rs[3].ToString();
+            var pm = rs[4].ToString();
+            var reason = rs[5].ToString();
+            var status = rs[6].ToString();
+
+            incmd.Parameters.AddWithValue("@id", id);
+            incmd.Parameters.AddWithValue("@userID", userID);
+            incmd.Parameters.AddWithValue("@date", date);
+            incmd.Parameters.AddWithValue("@am", am);
+            incmd.Parameters.AddWithValue("@pm", pm);
+            incmd.Parameters.AddWithValue("@reason", reason);
+            incmd.Parameters.AddWithValue("@status", status);
+
+
+
+            rs.Close();
+
+            modifycmd.ExecuteNonQuery();
+            secmd.ExecuteNonQuery();
             incmd.ExecuteNonQuery();
-            cmd.ExecuteNonQuery();
+
             MessageBox.Show("등록이 완료되었습니다.");
+            modifycmd.Dispose();
+            secmd.Dispose();
             incmd.Dispose();
-            cmd.Dispose();
             con.Close();
             this.Close();
         }

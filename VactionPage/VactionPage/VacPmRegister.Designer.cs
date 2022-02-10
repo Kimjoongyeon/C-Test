@@ -34,6 +34,7 @@ namespace VactionPage
             this.okVac = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.txDate = new System.Windows.Forms.TextBox();
+            this.txId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // PmTitle
@@ -91,12 +92,23 @@ namespace VactionPage
             this.txDate.TabIndex = 8;
             this.txDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // txId
+            // 
+            this.txId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txId.ForeColor = System.Drawing.SystemColors.Window;
+            this.txId.Location = new System.Drawing.Point(379, 463);
+            this.txId.Margin = new System.Windows.Forms.Padding(1);
+            this.txId.Name = "txId";
+            this.txId.Size = new System.Drawing.Size(45, 18);
+            this.txId.TabIndex = 10;
+            // 
             // VacPmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(434, 491);
+            this.Controls.Add(this.txId);
             this.Controls.Add(this.txDate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.okVac);
@@ -105,6 +117,7 @@ namespace VactionPage
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "VacPmRegister";
             this.Text = "VacPmRegister";
+            this.Load += new System.EventHandler(this.VacPmRegister_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,5 +130,6 @@ namespace VactionPage
         private System.Windows.Forms.Button okVac;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txDate;
+        private System.Windows.Forms.TextBox txId;
     }
 }

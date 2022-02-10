@@ -21,5 +21,10 @@ namespace VactionPage
         {
             this.Close();
         }
+
+        private void VacPmRegister_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

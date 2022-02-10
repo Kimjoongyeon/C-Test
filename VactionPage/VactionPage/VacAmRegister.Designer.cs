@@ -43,26 +43,28 @@ namespace VactionPage
             this.AmTitle.AutoSize = true;
             this.AmTitle.BackColor = System.Drawing.Color.White;
             this.AmTitle.Font = new System.Drawing.Font("돋움", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.AmTitle.Location = new System.Drawing.Point(114, 40);
+            this.AmTitle.Location = new System.Drawing.Point(130, 50);
             this.AmTitle.Name = "AmTitle";
-            this.AmTitle.Size = new System.Drawing.Size(164, 21);
+            this.AmTitle.Size = new System.Drawing.Size(212, 27);
             this.AmTitle.TabIndex = 0;
             this.AmTitle.Text = "(오전) 반차신청";
             // 
             // txReason
             // 
             this.txReason.BackColor = System.Drawing.SystemColors.Window;
-            this.txReason.Location = new System.Drawing.Point(51, 122);
+            this.txReason.Location = new System.Drawing.Point(58, 152);
+            this.txReason.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txReason.Multiline = true;
             this.txReason.Name = "txReason";
-            this.txReason.Size = new System.Drawing.Size(294, 141);
+            this.txReason.Size = new System.Drawing.Size(335, 175);
             this.txReason.TabIndex = 3;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(225, 289);
+            this.btnCancel.Location = new System.Drawing.Point(257, 361);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(86, 29);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "취소";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -70,9 +72,10 @@ namespace VactionPage
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(83, 289);
+            this.btnSave.Location = new System.Drawing.Point(95, 361);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(86, 29);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "확인";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -82,21 +85,23 @@ namespace VactionPage
             // 
             this.txDate.BackColor = System.Drawing.SystemColors.Window;
             this.txDate.Font = new System.Drawing.Font("돋움체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.txDate.Location = new System.Drawing.Point(51, 80);
+            this.txDate.Location = new System.Drawing.Point(58, 100);
+            this.txDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txDate.Multiline = true;
             this.txDate.Name = "txDate";
             this.txDate.ReadOnly = true;
-            this.txDate.Size = new System.Drawing.Size(294, 29);
+            this.txDate.Size = new System.Drawing.Size(335, 35);
             this.txDate.TabIndex = 7;
             this.txDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txId
             // 
             this.txId.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txId.Location = new System.Drawing.Point(275, 329);
+            this.txId.ForeColor = System.Drawing.SystemColors.Window;
+            this.txId.Location = new System.Drawing.Point(314, 411);
             this.txId.Margin = new System.Windows.Forms.Padding(1);
             this.txId.Name = "txId";
-            this.txId.Size = new System.Drawing.Size(39, 14);
+            this.txId.Size = new System.Drawing.Size(45, 18);
             this.txId.TabIndex = 9;
             // 
             // lbId
@@ -104,18 +109,18 @@ namespace VactionPage
             this.lbId.AutoSize = true;
             this.lbId.BackColor = System.Drawing.Color.White;
             this.lbId.Font = new System.Drawing.Font("돋움", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbId.Location = new System.Drawing.Point(169, 9);
+            this.lbId.Location = new System.Drawing.Point(193, 11);
             this.lbId.Name = "lbId";
-            this.lbId.Size = new System.Drawing.Size(18, 21);
+            this.lbId.Size = new System.Drawing.Size(23, 27);
             this.lbId.TabIndex = 11;
             this.lbId.Text = ".";
             // 
             // VacAmRegister
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(380, 393);
+            this.ClientSize = new System.Drawing.Size(434, 491);
             this.Controls.Add(this.lbId);
             this.Controls.Add(this.txId);
             this.Controls.Add(this.txDate);
@@ -123,6 +128,7 @@ namespace VactionPage
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txReason);
             this.Controls.Add(this.AmTitle);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "VacAmRegister";
             this.Text = "VacAmRegister";
             this.Load += new System.EventHandler(this.VacAmRegister_Load);

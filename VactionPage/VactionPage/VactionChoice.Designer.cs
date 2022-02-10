@@ -91,7 +91,7 @@ namespace VactionPage
             this.lbTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbTitle.AutoSize = true;
             this.lbTitle.Font = new System.Drawing.Font("Segoe UI Emoji", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle.Location = new System.Drawing.Point(2331, -860);
+            this.lbTitle.Location = new System.Drawing.Point(2350, -835);
             this.lbTitle.Name = "lbTitle";
             this.lbTitle.Size = new System.Drawing.Size(156, 46);
             this.lbTitle.TabIndex = 14;
@@ -112,7 +112,7 @@ namespace VactionPage
             // 
             this.lbName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(2493, -635);
+            this.lbName.Location = new System.Drawing.Point(2512, -610);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(72, 20);
             this.lbName.TabIndex = 18;
@@ -148,6 +148,7 @@ namespace VactionPage
             this.lbVacOk.Size = new System.Drawing.Size(154, 24);
             this.lbVacOk.TabIndex = 3;
             this.lbVacOk.Text = "휴가결재승인";
+            this.lbVacOk.Click += new System.EventHandler(this.lbVacOk_Click);
             // 
             // lbVacList
             // 
@@ -314,7 +315,7 @@ namespace VactionPage
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Emoji", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(950, 20);
+            this.label4.Location = new System.Drawing.Point(969, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(156, 46);
             this.label4.TabIndex = 44;

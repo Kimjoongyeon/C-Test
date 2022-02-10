@@ -32,7 +32,7 @@ namespace VactionPage
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
-                lbAmEvent.Text = reader["id"].ToString();
+                lbAmEvent.Text = reader["userID"].ToString();
             }
             reader.Dispose();
             cmd.Dispose();

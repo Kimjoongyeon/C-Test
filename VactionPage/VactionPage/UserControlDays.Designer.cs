@@ -44,9 +44,9 @@ namespace VactionPage
             // 
             this.lbdays.AutoSize = true;
             this.lbdays.Font = new System.Drawing.Font("굴림체", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbdays.Location = new System.Drawing.Point(3, 10);
+            this.lbdays.Location = new System.Drawing.Point(3, 12);
             this.lbdays.Name = "lbdays";
-            this.lbdays.Size = new System.Drawing.Size(24, 16);
+            this.lbdays.Size = new System.Drawing.Size(29, 20);
             this.lbdays.TabIndex = 0;
             this.lbdays.Text = "00";
             // 
@@ -55,10 +55,10 @@ namespace VactionPage
             this.panelAM.BackColor = System.Drawing.Color.White;
             this.panelAM.Controls.Add(this.lbAmEvent);
             this.panelAM.Font = new System.Drawing.Font("굴림", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.panelAM.Location = new System.Drawing.Point(33, 10);
+            this.panelAM.Location = new System.Drawing.Point(38, 12);
             this.panelAM.Margin = new System.Windows.Forms.Padding(0);
             this.panelAM.Name = "panelAM";
-            this.panelAM.Size = new System.Drawing.Size(54, 71);
+            this.panelAM.Size = new System.Drawing.Size(62, 89);
             this.panelAM.TabIndex = 1;
             this.panelAM.Click += new System.EventHandler(this.panelAM_Click);
             this.panelAM.MouseLeave += new System.EventHandler(this.panelAM_MouseLeave);
@@ -68,19 +68,20 @@ namespace VactionPage
             // 
             this.lbAmEvent.AutoSize = true;
             this.lbAmEvent.Font = new System.Drawing.Font("굴림", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbAmEvent.Location = new System.Drawing.Point(9, 8);
+            this.lbAmEvent.Location = new System.Drawing.Point(10, 10);
             this.lbAmEvent.Margin = new System.Windows.Forms.Padding(0);
             this.lbAmEvent.Name = "lbAmEvent";
-            this.lbAmEvent.Size = new System.Drawing.Size(0, 9);
+            this.lbAmEvent.Size = new System.Drawing.Size(0, 12);
             this.lbAmEvent.TabIndex = 0;
             // 
             // panelPM
             // 
             this.panelPM.BackColor = System.Drawing.Color.White;
             this.panelPM.Controls.Add(this.lbPmEvent);
-            this.panelPM.Location = new System.Drawing.Point(93, 10);
+            this.panelPM.Location = new System.Drawing.Point(106, 12);
+            this.panelPM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelPM.Name = "panelPM";
-            this.panelPM.Size = new System.Drawing.Size(54, 71);
+            this.panelPM.Size = new System.Drawing.Size(62, 89);
             this.panelPM.TabIndex = 2;
             this.panelPM.Click += new System.EventHandler(this.panelPM_Click);
             this.panelPM.MouseLeave += new System.EventHandler(this.panelPM_MouseLeave);
@@ -90,10 +91,10 @@ namespace VactionPage
             // 
             this.lbPmEvent.AutoSize = true;
             this.lbPmEvent.Font = new System.Drawing.Font("굴림", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbPmEvent.Location = new System.Drawing.Point(11, 8);
+            this.lbPmEvent.Location = new System.Drawing.Point(13, 10);
             this.lbPmEvent.Margin = new System.Windows.Forms.Padding(0);
             this.lbPmEvent.Name = "lbPmEvent";
-            this.lbPmEvent.Size = new System.Drawing.Size(0, 9);
+            this.lbPmEvent.Size = new System.Drawing.Size(0, 12);
             this.lbPmEvent.TabIndex = 1;
             // 
             // timer1
@@ -102,7 +103,7 @@ namespace VactionPage
             // 
             // UserControlDays
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panelPM);
@@ -110,7 +111,7 @@ namespace VactionPage
             this.Controls.Add(this.lbdays);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UserControlDays";
-            this.Size = new System.Drawing.Size(150, 83);
+            this.Size = new System.Drawing.Size(171, 104);
             this.Load += new System.EventHandler(this.UserControlDays_Load);
             this.panelAM.ResumeLayout(false);
             this.panelAM.PerformLayout();

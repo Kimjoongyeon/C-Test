@@ -36,8 +36,8 @@ namespace VactionPage
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                Form1.LoginInfo.adminInfo = dr[4].ToString();
-                if (Form1.LoginInfo.adminInfo == "admin")
+                //Form1.LoginInfo.adminInfo = dr[4].ToString();
+                if (lbId.Text == "admin")
                 {
                     lbVacOk.Show();
                 }

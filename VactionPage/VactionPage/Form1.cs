@@ -37,35 +37,23 @@ namespace VactionPage
             cmd = new SqlCommand();
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT * FROM userLogin where id = @id AND password = @pwd";
-            cmd.Parameters.AddWithValue("@id", txtId.Text);
-<<<<<<< HEAD
+            cmd.CommandText = "SELECT * FROM userLogin where userID = @userID AND password = @pwd";
+            cmd.Parameters.AddWithValue("@userID", txtId.Text);
+
             cmd.Parameters.AddWithValue("@pwd", encryptBytes);
-            dr = cmd.ExecuteReader();
-=======
-            //cmd.Parameters.AddWithValue("@pwd", hash.PassHash(txtPwd.Text));
-            cmd.Parameters.AddWithValue("@pwd", txtPwd.Text);
+
             SqlDataReader dr = cmd.ExecuteReader();
->>>>>>> b3d6ffccaffa5218e15022a2e18d7685fbd1b71d
             LoginInfo.userId = txtId.Text;
 
             if (EmptyCheck() == true)
             { 
                 if (dr.Read() )
                 {
-                    LoginInfo.adminInfo = dr[4].ToString();
-                    if (LoginInfo.adminInfo == "사원") 
-                    {
-                        this.Hide();
-                        VactionChoice vacChoice = new VactionChoice();
-                        vacChoice.Show();
-                    }
-                    else
-                    {
-                        this.Hide();
-                        VactionChoice vacChoice = new VactionChoice();
-                        vacChoice.Show();
-                    }
+                    //LoginInfo.adminInfo = dr[4].ToString();
+                    this.Hide();
+                    VactionChoice vacChoice = new VactionChoice();
+                    vacChoice.Show();
+                    
                 }
                 else
                 {

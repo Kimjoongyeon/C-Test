@@ -25,11 +25,6 @@ namespace VactionPage
         {
             InitializeComponent();
             con = new SqlConnection("server=127.0.0.1; Initial Catalog=code;Integrated Security=SSPI");
-            while (dr.Read())
-            {
-                string column = dr["id"].ToString();
-                int columnValue = Convert.ToInt32(dr["id"]);
-            }
         }
         
         private void VactionChoice_Load(object sender, EventArgs e)
@@ -44,9 +39,9 @@ namespace VactionPage
             
             if(dr.Read())
             {
-                Form1.LoginInfo.adminInfo += dr[4].ToString();
-                Console.WriteLine(dr[4].ToString());
-                if (Form1.LoginInfo.adminInfo == "admin")
+                //var adminInfo = dr[4].ToString();
+                //Console.WriteLine(dr[4].ToString());
+                if (lbId.Text == "admin")
                 {
                     lbVacOk.Show();
                 }
