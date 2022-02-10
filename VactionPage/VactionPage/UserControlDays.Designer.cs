@@ -32,10 +32,10 @@ namespace VactionPage
             this.components = new System.ComponentModel.Container();
             this.lbdays = new System.Windows.Forms.Label();
             this.panelAM = new System.Windows.Forms.Panel();
-            this.panelPM = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lbAmEvent = new System.Windows.Forms.Label();
+            this.panelPM = new System.Windows.Forms.Panel();
             this.lbPmEvent = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelAM.SuspendLayout();
             this.panelPM.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +64,16 @@ namespace VactionPage
             this.panelAM.MouseLeave += new System.EventHandler(this.panelAM_MouseLeave);
             this.panelAM.MouseHover += new System.EventHandler(this.panelAM_MouseHover);
             // 
+            // lbAmEvent
+            // 
+            this.lbAmEvent.AutoSize = true;
+            this.lbAmEvent.Font = new System.Drawing.Font("굴림", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbAmEvent.Location = new System.Drawing.Point(9, 8);
+            this.lbAmEvent.Margin = new System.Windows.Forms.Padding(0);
+            this.lbAmEvent.Name = "lbAmEvent";
+            this.lbAmEvent.Size = new System.Drawing.Size(0, 9);
+            this.lbAmEvent.TabIndex = 0;
+            // 
             // panelPM
             // 
             this.panelPM.BackColor = System.Drawing.Color.White;
@@ -76,20 +86,6 @@ namespace VactionPage
             this.panelPM.MouseLeave += new System.EventHandler(this.panelPM_MouseLeave);
             this.panelPM.MouseHover += new System.EventHandler(this.panelPM_MouseHover);
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // lbAmEvent
-            // 
-            this.lbAmEvent.AutoSize = true;
-            this.lbAmEvent.Font = new System.Drawing.Font("굴림", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lbAmEvent.Location = new System.Drawing.Point(9, 8);
-            this.lbAmEvent.Margin = new System.Windows.Forms.Padding(0);
-            this.lbAmEvent.Name = "lbAmEvent";
-            this.lbAmEvent.Size = new System.Drawing.Size(0, 9);
-            this.lbAmEvent.TabIndex = 0;
-            // 
             // lbPmEvent
             // 
             this.lbPmEvent.AutoSize = true;
@@ -99,6 +95,10 @@ namespace VactionPage
             this.lbPmEvent.Name = "lbPmEvent";
             this.lbPmEvent.Size = new System.Drawing.Size(0, 9);
             this.lbPmEvent.TabIndex = 1;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // UserControlDays
             // 

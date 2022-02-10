@@ -14,30 +14,42 @@ namespace VactionPage
 {
     public partial class VacWaitList : Form
     {
-        String connString = "server=127.0.0.1; Initial Catalog=code;Integrated Security=SSPI";
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataReader dr;
+        
         public VacWaitList()
         {
             InitializeComponent();
+            con = new SqlConnection("server=127.0.0.1; Initial Catalog=code;Integrated Security=SSPI");
+
         }
         private void VacWaitList_Load(object sender, EventArgs e)
         {
             //로그인한 데이터
             lbId.Text = Form1.LoginInfo.userId;
-            // 관리자만 보이게끔 처리
-            if (lbId.Text == "admin")
-            {
-                lbVacOk.Show();
-            }
-            else
-            {
-                lbVacOk.Hide();
-            }
-            SqlConnection con = new SqlConnection(connString);
             con.Open();
-
-            SqlCommand cmd = new SqlCommand();
+            cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT vactionNo, id, reason, time, date FROM Vaction";
+            cmd.CommandText = "SELECT * FROM userLogin";
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                Form1.LoginInfo.adminInfo = dr[4].ToString();
+                if (Form1.LoginInfo.adminInfo == "관리자")
+                {
+                    lbVacOk.Show();
+                }
+                else
+                {
+                    lbVacOk.Hide();
+                }
+            }
+            con.Close();
+            dr.Close();
+
+            con.Open();
+            cmd.CommandText = "SELECT id, userID, reason, am, pm, date FROM Vaction";
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
@@ -45,12 +57,13 @@ namespace VactionPage
             
             vacListView.DataSource = ds;
             vacListView.DataMember = "Vaction";
-            vacListView.Columns["vactionNo"].HeaderText = "번호";
-            vacListView.Columns["id"].HeaderText = "아이디";
-            vacListView.Columns["id"].Width = 120;
+            vacListView.Columns["id"].HeaderText = "번호";
+            vacListView.Columns["userID"].HeaderText = "아이디";
+            vacListView.Columns["userID"].Width = 120;
             vacListView.Columns["reason"].HeaderText = "휴가사유";
             vacListView.Columns["reason"].Width = 300;
-            vacListView.Columns["time"].HeaderText = "휴가종류";
+            vacListView.Columns["am"].HeaderText = "오전휴가";
+            vacListView.Columns["pm"].HeaderText = "오후휴가";
             vacListView.Columns["date"].HeaderText = "날짜";
             vacListView.Columns["date"].Width = 180;
         }

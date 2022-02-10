@@ -56,7 +56,7 @@ namespace VactionPage
 
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT vactionNo, id, reason, time, date, status FROM Vaction";
+            cmd.CommandText = "SELECT id, userID, reason, am, pm, date, status FROM Vaction";
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
@@ -64,13 +64,14 @@ namespace VactionPage
 
             vacListView.DataSource = ds;
             vacListView.DataMember = "Vaction";
-            vacListView.Columns["vactionNo"].HeaderText = "번호";
-            vacListView.Columns["id"].HeaderText = "아이디";
-            vacListView.Columns["id"].Width = 110;
+            vacListView.Columns["id"].HeaderText = "번호";
+            vacListView.Columns["userID"].HeaderText = "아이디";
+            vacListView.Columns["userID"].Width = 110;
             vacListView.Columns["reason"].HeaderText = "휴가사유";
             vacListView.Columns["reason"].Width = 300;
-            vacListView.Columns["time"].HeaderText = "휴가종류";
-            vacListView.Columns["date"].HeaderText = "날짜";
+            vacListView.Columns["am"].HeaderText = "휴가(오전)";
+            vacListView.Columns["pm"].HeaderText = "휴가(오후)";
+            vacListView.Columns["date"].HeaderText = "선택날짜";
             vacListView.Columns["date"].Width = 140;
             vacListView.Columns["status"].HeaderText = "상태";
         }

@@ -51,5 +51,9 @@ D:\work\C-Test\VactionPage\VactionPage\obj\Debug\LoginForm.csproj.CoreCompileInp
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.exe
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.pdb
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.Form1.resources
+<<<<<<< HEAD
 C:\JAVASTUDY\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.Form1.resources
 C:\JAVASTUDY\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.VactionApproveForm.resources
+=======
+D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.VactionApproveForm.resources
+>>>>>>> b3d6ffccaffa5218e15022a2e18d7685fbd1b71d

@@ -87,8 +87,8 @@ namespace VactionPage
         //Create a new method to display event
         private void displayEvent()
         {
-            /*
-            SqlConnection con = new SqlConnection(connString); //"INSERT INTO Vaction(date, reason)VALUES(@param1, @param2)";
+            
+            SqlConnection con = new SqlConnection(connString); 
             con.Open();
             String sql = "SELECT * FROM Vaction where date = @fDate";
             SqlCommand cmd = con.CreateCommand();
@@ -97,12 +97,12 @@ namespace VactionPage
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
-                txAmEvent.Text = reader["reason"].ToString();
+                lbAmEvent.Text = reader["userID"].ToString();
             }
             reader.Dispose();
             cmd.Dispose();
             con.Close();
-            */
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
