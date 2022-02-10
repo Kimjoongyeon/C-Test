@@ -40,14 +40,14 @@ namespace VactionPage
             SqlConnection con = new SqlConnection(connString);
             txId.Text = Form1.LoginInfo.userId;
             con.Open();
-            String sql = "INSERT INTO Vaction(date, reason, id, time, status)VALUES(@date, @reason, @id, @time, @status)";
+            String sql = "INSERT INTO Vaction(date, reason, id, am, status)VALUES(@date, @reason, @id, @am, @status)";
             //sql = "select *, yearVaction - @useVaction as remainVaction from Vaction";
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.AddWithValue("@date", txDate.Text);
             cmd.Parameters.AddWithValue("@reason", txReason.Text);
             cmd.Parameters.AddWithValue("@id", txId.Text);
-            cmd.Parameters.AddWithValue("@time", "AM");
+            cmd.Parameters.AddWithValue("@am", "AM");
             //cmd.Parameters.AddWithValue("@useVaction", -0.5);
             cmd.Parameters.AddWithValue("@status", 0);
             cmd.ExecuteNonQuery();

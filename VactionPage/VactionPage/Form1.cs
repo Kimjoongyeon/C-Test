@@ -31,16 +31,15 @@ namespace VactionPage
         }
         public void btnLogin_Click(object sender, EventArgs e)  //로그인 메소드
         {
-            HashPassword hash = new HashPassword();
+            SHA256Managed sha256Managed = new SHA256Managed();
+            byte[] encryptBytes = sha256Managed.ComputeHash(Encoding.UTF8.GetBytes(txtPwd.Text));
             cmd = new SqlCommand();
             con.Open();
             cmd.Connection = con;
             // 비번 복호화해서 로그인하게 해야함
             cmd.CommandText = "SELECT * FROM userLogin where id = @id AND password = @pwd";
-            //cmd.CommandText = "select * from userLogin where id = @id AND password= Pwdcompare(@pwd, password)";
             cmd.Parameters.AddWithValue("@id", txtId.Text);
-            //cmd.Parameters.AddWithValue("@pwd", hash.PassHash(txtPwd.Text));
-            cmd.Parameters.AddWithValue("@pwd", txtPwd.Text);
+            cmd.Parameters.AddWithValue("@pwd", encryptBytes);
             dr = cmd.ExecuteReader();
             LoginInfo.userId = txtId.Text;
 

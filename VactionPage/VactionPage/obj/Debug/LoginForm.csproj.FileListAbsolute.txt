@@ -50,5 +50,6 @@ D:\work\C-Test\VactionPage\VactionPage\obj\Debug\LoginForm.csproj.GenerateResour
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\LoginForm.csproj.CoreCompileInputs.cache
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.exe
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.pdb
-C:\JAVASTUDY\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.SHA1Util.resources
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.Form1.resources
+C:\JAVASTUDY\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.Form1.resources
+C:\JAVASTUDY\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.VactionApproveForm.resources

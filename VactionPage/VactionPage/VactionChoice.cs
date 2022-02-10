@@ -25,6 +25,11 @@ namespace VactionPage
         {
             InitializeComponent();
             con = new SqlConnection("server=127.0.0.1; Initial Catalog=code;Integrated Security=SSPI");
+            while (dr.Read())
+            {
+                string column = dr["id"].ToString();
+                int columnValue = Convert.ToInt32(dr["id"]);
+            }
         }
         
         private void VactionChoice_Load(object sender, EventArgs e)

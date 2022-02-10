@@ -29,13 +29,14 @@ namespace VactionPage
             AdminPage adminPage = new AdminPage();
             SqlConnection con = new SqlConnection(connString);
             con.Open();
-            String sql = "INSERT INTO Vaction(date, reason, id, time, status)VALUES(@date, @reason, @id, @time, @status)";
+            String sql = "INSERT INTO totalVaction(date, reason, id, am, pm, status, yearVaction, remainVaction)VALUES" +
+                "(@date, @reason, @id, @am, @pm, @status, @yearVaction, @remainVaction)";
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandText = sql;
             cmd.Parameters.AddWithValue("@date", adminPage);
             cmd.Parameters.AddWithValue("@reason", adminPage);
             cmd.Parameters.AddWithValue("@id", adminPage);
-            cmd.Parameters.AddWithValue("@time", "AM");
+            cmd.Parameters.AddWithValue("@am", "AM");
             //cmd.Parameters.AddWithValue("@useVaction", -0.5);
             cmd.Parameters.AddWithValue("@status", 0);
             cmd.ExecuteNonQuery();
