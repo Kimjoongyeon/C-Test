@@ -29,15 +29,25 @@ namespace VactionPage
         private void UserVactionList_Load(object sender, EventArgs e)
         {
             lbId.Text = Form1.LoginInfo.userId;
-            // 관리자만 보이게끔 처리
-            if (lbId.Text == "admin")
+            con.Open();
+            cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "SELECT * FROM userLogin";
+            dr = cmd.ExecuteReader();
+            if (dr.Read())
             {
-                lbVacOk.Show();
+                Form1.LoginInfo.adminInfo = dr[4].ToString();
+                if (Form1.LoginInfo.adminInfo == "admin")
+                {
+                    lbVacOk.Show();
+                }
+                else
+                {
+                    lbVacOk.Hide();
+                }
             }
-            else
-            {
-                lbVacOk.Hide();
-            }
+            con.Close();
+            dr.Close();
             displaDays();
         }
         private void displaDays()

@@ -52,3 +52,4 @@ D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.exe
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.pdb
 C:\JAVASTUDY\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.SHA1Util.resources
 D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.Form1.resources
+D:\work\C-Test\VactionPage\VactionPage\obj\Debug\VactionPage.VactionApproveForm.resources

@@ -17,11 +17,12 @@ namespace VactionPage
     {
         SqlConnection con;
         SqlCommand cmd;
-        SqlDataReader dr;
+        //SqlDataReader dr;
         
         public static class LoginInfo
         {
             public static string userId;
+            public static string adminInfo;
         }
         public Form1()
         {
@@ -35,20 +36,19 @@ namespace VactionPage
             cmd = new SqlCommand();
             con.Open();
             cmd.Connection = con;
-            // 비번 복호화해서 로그인하게 해야함
             cmd.CommandText = "SELECT * FROM userLogin where id = @id AND password = @pwd";
-            //cmd.CommandText = "select * from userLogin where id = @id AND password= Pwdcompare(@pwd, password)";
             cmd.Parameters.AddWithValue("@id", txtId.Text);
             //cmd.Parameters.AddWithValue("@pwd", hash.PassHash(txtPwd.Text));
             cmd.Parameters.AddWithValue("@pwd", txtPwd.Text);
-            dr = cmd.ExecuteReader();
+            SqlDataReader dr = cmd.ExecuteReader();
             LoginInfo.userId = txtId.Text;
 
             if (EmptyCheck() == true)
             { 
                 if (dr.Read() )
                 {
-                    if (txtId.Text == "admin") //이부분에서 관리자만 들어가게끔 바꿔야함 지금은 계정하나만 들어갈수 있는 상태임
+                    LoginInfo.adminInfo = dr[4].ToString();
+                    if (LoginInfo.adminInfo == "사원") 
                     {
                         this.Hide();
                         VactionChoice vacChoice = new VactionChoice();
@@ -67,6 +67,7 @@ namespace VactionPage
                 }
             }
             con.Close();
+            dr.Close();
         }
         private bool EmptyCheck() //빈 공간을 방지하기 위한 메소드
         {
